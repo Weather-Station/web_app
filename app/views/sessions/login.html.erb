@@ -1,0 +1,9 @@
+<h1>Login here</h1>
+<% if @login_failed  %>
+<%= "Login failed - please try again." %>
+<% end %>
+<%= form_for @user, url:{action:"authenticate"} do |f| %>
+<%= f.text_field :username %>
+<%= f.password_field :password %>
+<%= f.submit value:"Login" %>
+<% end %>
