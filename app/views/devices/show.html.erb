@@ -1,11 +1,18 @@
 <h1><%= @device.name %></h1>
 <h4><%= @device.description %></h4>
+<% if @token_show %>
+<% content_for :misc_head_js do %>
+<script>
+window.onload(alert("Token is <%= @device.token %>"));
+</script><% end %><% end %>
 <br/>
 
-This device has made <%= @device.reports_count %> weather reports.
-
+This device has made <%= @device.reports_count %> weather <%= "report".pluralize(@device.reports_count) %>.
+<br/>
+Unique token (should be texted to device) is: <%= @device.token %>
+<br/>
 It was created at <%= @device.created_at %>
-
+<br/>
 View reports here (not yet...)
-
+<br/>
 <%= link_to "Edit", edit_device_path %>
