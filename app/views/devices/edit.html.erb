@@ -1,0 +1,10 @@
+<h1>Editing <%= @device.name %></h1>
+<hr/>
+
+<%= form_for @device do |d| %>
+<%= d.text_field :name %>
+<%= d.text_field :description %>
+<%= d.submit %>
+<% end %>
+
+OR DESTROY HERE

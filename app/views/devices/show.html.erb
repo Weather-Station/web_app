@@ -1,0 +1,11 @@
+<h1><%= @device.name %></h1>
+<h4><%= @device.description %></h4>
+<br/>
+
+This device has made <%= @device.reports_count %> weather reports.
+
+It was created at <%= @device.created_at %>
+
+View reports here (not yet...)
+
+<%= link_to "Edit", edit_device_path %>

@@ -1,0 +1,8 @@
+<h1>Your Devices</h1>
+<% unless @devices == false %>
+<% @devices.each do |d| %>
+<%= link_to d.name,d %><br/>
+<%= d.reports_count %><br/>
+<%= d.description %><br/>
+<% end %>
+<% end %>
