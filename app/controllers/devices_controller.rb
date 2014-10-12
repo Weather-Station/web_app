@@ -44,6 +44,9 @@ class DevicesController < ApplicationController
 		@token_show = flash[:newly_created]
 
 		@device = Device.find(params[:id])
+		@latest_report = Report.where(device_id:params[:id]).order(record_time: :desc).first
+
+
 	end
 	private
 	def device_params

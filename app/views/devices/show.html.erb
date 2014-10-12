@@ -15,7 +15,11 @@ Unique token (should be texted to device) is: <%= @device.token %>
 <br/>
 It was created at <%= @device.created_at %>
 <br/>
-View reports here (not yet...)
+Latest Report: <%= @latest_report.record_time %> transmitted at <%= @latest_report.created_at %><br/>
+Battery level at last transmission: <%= @latest_report.battery_level %>%
+<br/>
+<%= link_to "Reports", device_reports_path(:device_id =>@device.id) %> 
+
 <br/>
 <%= link_to "Edit", edit_device_path %>
 

@@ -13,8 +13,13 @@ class ReportsController < ApplicationController
     else
       head :bad_request
     end
+  end
 
-
+  def index
+    @reports = Report.where(device_id:params[:device_id]).order(record_time: :desc)
+  end
+  def show
+    @report = Report.find(params[:id])
   end
 
   private #quite a lot of potential params!

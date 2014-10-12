@@ -1,0 +1,9 @@
+<h1>Device Reports</h1>
+<% @reports.each do |r| %>
+
+<%= link_to r.record_time, device_report_path(params[:device_id], r.id) %><br/>
+<%= r.battery_level %>%<br/>
+
+<% end %>
+
+<%= link_to "Add a new station",new_device_path %>

@@ -1,0 +1,11 @@
+<h1>Report at <%= @report.record_time %></h1>
+Received at <%= @report.created_at %>. <br/>
+Pressure: <%= number_with_precision((@report.pressure/100.00), precision:2) %>hPa<br/>
+Temperature: <%= @report.temperature/10.0 %>&#176C<br/>
+Humidity: <%= @report.humidity %>%<br/>
+Wind Speed: <%= (@report.wind_speed / 10.0)%>m/s<br/>
+Wind Direction: <%= @report.wind_direction %>&#176<br/>
+Rainfall: <%= @report.rainfall %>mm/hr<br/>
+Light level: <%= @report.light_level %>%<br/>
+Battery level: <%= @report.battery_level %>%<br/>
+<%= link_to "Back", device_reports_path %>
