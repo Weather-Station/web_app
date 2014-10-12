@@ -2,5 +2,6 @@
 <%= form_for :device, url: devices_path  do |f| %>
 <%= f.text_field :name %>
 <%= f.text_field :description %>
+<%= f.number_field :update_frequency, :value=>60 %>
 <%= f.submit %>
 <% end %>

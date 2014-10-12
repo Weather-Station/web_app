@@ -9,6 +9,8 @@ window.onload(alert("Token is <%= @device.token %>"));
 
 This device has made <%= @device.reports_count %> weather <%= "report".pluralize(@device.reports_count) %>.
 <br/>
+It sends these reports every <%= @device.update_period %> <%= "minute".pluralize(@device.update_period) %>
+<br/>
 Unique token (should be texted to device) is: <%= @device.token %>
 <br/>
 It was created at <%= @device.created_at %>
@@ -16,3 +18,6 @@ It was created at <%= @device.created_at %>
 View reports here (not yet...)
 <br/>
 <%= link_to "Edit", edit_device_path %>
+
+<br/>
+<%= link_to "Back", root_path %>

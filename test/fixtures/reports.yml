@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  deviceID: 1
+  token: MyString
+  temperature: 1
+  pressure: 1
+  humidity: 1
+  wind_speed: 1
+  wind_direction: 1
+  rainfall: 1
+  light_level: 1
+  battery_level: 1
+  record_time: 2014-10-12 15:30:09
+
+two:
+  deviceID: 1
+  token: MyString
+  temperature: 1
+  pressure: 1
+  humidity: 1
+  wind_speed: 1
+  wind_direction: 1
+  rainfall: 1
+  light_level: 1
+  battery_level: 1
+  record_time: 2014-10-12 15:30:09

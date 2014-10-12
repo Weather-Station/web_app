@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141011230321) do
+ActiveRecord::Schema.define(version: 20141012181020) do
 
   create_table "devices", force: true do |t|
     t.string   "name"
@@ -21,6 +21,23 @@ ActiveRecord::Schema.define(version: 20141011230321) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "token"
+    t.integer  "update_period"
+  end
+
+  create_table "reports", force: true do |t|
+    t.integer  "device_id"
+    t.string   "token"
+    t.integer  "temperature"
+    t.integer  "pressure"
+    t.integer  "humidity"
+    t.integer  "wind_speed"
+    t.integer  "wind_direction"
+    t.integer  "rainfall"
+    t.integer  "light_level"
+    t.integer  "battery_level"
+    t.datetime "record_time"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", force: true do |t|

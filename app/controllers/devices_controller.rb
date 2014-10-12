@@ -8,7 +8,7 @@ class DevicesController < ApplicationController
 			d.token = SecureRandom.hex(5)
 		end while !Device.find_by(token:d.token).nil?
 		d.uid = session[:uid]
-		d.reports_count = 0
+		d.reports_count = 0#assign the reports count
 		unless d.save
 			#error handling?
 			flash[:save_errors] = d.errors
@@ -47,7 +47,7 @@ class DevicesController < ApplicationController
 	end
 	private
 	def device_params
-		params.require(:device).permit(:name,:description)
+		params.require(:device).permit(:name,:description, :update_period) #update_period is in seconds
 	end
 
 end

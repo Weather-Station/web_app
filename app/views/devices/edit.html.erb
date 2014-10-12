@@ -4,6 +4,7 @@
 <%= form_for @device do |d| %>
 <%= d.text_field :name %>
 <%= d.text_field :description %>
+<%= d.number_field :update_period %>
 <%= d.submit %>
 <% end %>
 <br/>
