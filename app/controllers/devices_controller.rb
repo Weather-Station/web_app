@@ -3,18 +3,16 @@ class DevicesController < ApplicationController
 	end
 	def create
 		d = Device.new(device_params)
-		#we have to make sure that the token is unique
-		begin
-			d.token = SecureRandom.hex(5)
-		end while !Device.find_by(token:d.token).nil?
 		d.uid = session[:uid]
 		d.reports_count = 0#assign the reports count
 		unless d.save
 			#error handling?
-			flash[:save_errors] = d.errors
-		end
-		flash[:newly_created] = true
+			flash[:errors] = d.errors.full_messages
+			redirect_to new_device_path
+
+		else
 		redirect_to device_path(d.id)
+	end
 	end
 	def new
 		@device = Device.new
@@ -41,8 +39,6 @@ class DevicesController < ApplicationController
 		end
 	end
 	def show
-		@token_show = flash[:newly_created]
-
 		@device = Device.find(params[:id])
 		@latest_report = Report.where(device_id:params[:id]).order(record_time: :desc).first
 
@@ -50,7 +46,7 @@ class DevicesController < ApplicationController
 	end
 	private
 	def device_params
-		params.require(:device).permit(:name,:description, :update_period) #update_period is in seconds
+		params.require(:device).permit(:name,:description, :update_period,:token) #update_period is in seconds
 	end
 
 end

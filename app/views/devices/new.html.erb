@@ -1,7 +1,14 @@
 <h1>Create a new device</h1>
-<%= form_for :device, url: devices_path  do |f| %>
+<% unless flash[:errors].nil? %>
+<% flash[:errors].each do |err| %>
+<%= err %>
+<% end %>
+<% end %>
+<%= form_for @device, url: devices_path  do |f| %>
 <%= f.text_field :name %>
 <%= f.text_field :description %>
 <%= f.number_field :update_frequency, :value=>60 %>
+<br/>
+<%= f.text_field :token %>
 <%= f.submit %>
 <% end %>

@@ -1,24 +1,21 @@
 <h1><%= @device.name %></h1>
 <h4><%= @device.description %></h4>
-<% if @token_show %>
-<% content_for :misc_head_js do %>
-<script>
-window.onload(alert("Token is <%= @device.token %>"));
-</script><% end %><% end %>
-<br/>
+
 
 This device has made <%= @device.reports_count %> weather <%= "report".pluralize(@device.reports_count) %>.
 <br/>
 It sends these reports every <%= @device.update_period %> <%= "minute".pluralize(@device.update_period) %>
 <br/>
-Unique token (should be texted to device) is: <%= @device.token %>
+Unique token (MAC/IMEI) is: <%= @device.token %>
 <br/>
 It was created at <%= @device.created_at %>
 <br/>
+<% unless @latest_report.nil? %>
 Latest Report: <%= @latest_report.record_time %> transmitted at <%= @latest_report.created_at %><br/>
 Battery level at last transmission: <%= @latest_report.battery_level %>%
+<% end %>
 <br/>
-<%= link_to "Reports", device_reports_path(:device_id =>@device.id) %> 
+<%= link_to "Reports", device_reports_path(:device_id =>@device.id) %>
 
 <br/>
 <%= link_to "Edit", edit_device_path %>
