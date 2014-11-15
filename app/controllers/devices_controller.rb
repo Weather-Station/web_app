@@ -31,6 +31,8 @@ class DevicesController < ApplicationController
 
 
 	def destroy
+		Device.find(params[:id]).destroy!
+		redirect_to devices_path
 	end
 	def index
 		@devices = Device.where(uid: 2)#create a global array of all the devices belonging to the user
@@ -48,5 +50,7 @@ class DevicesController < ApplicationController
 	def device_params
 		params.require(:device).permit(:name,:description, :update_period,:token) #update_period is in seconds
 	end
+
+
 
 end

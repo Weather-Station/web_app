@@ -11,17 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141012181020) do
+ActiveRecord::Schema.define(version: 20141114233855) do
 
   create_table "devices", force: true do |t|
-    t.string   "name"
-    t.integer  "uid"
+    t.string   "name",          null: false
+    t.integer  "uid",           null: false
     t.integer  "reports_count"
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "token"
-    t.integer  "update_period"
+    t.string   "token",         null: false
+    t.integer  "update_period", null: false
   end
 
   create_table "reports", force: true do |t|

@@ -8,4 +8,5 @@
 <%= d.submit %>
 <% end %>
 <br/>
-OR DESTROY HERE
+
+<%= link_to("Delete device", device_path, method: :delete, :confirm => "Delete device?") %>
